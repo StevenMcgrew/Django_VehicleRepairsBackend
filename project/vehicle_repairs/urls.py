@@ -7,6 +7,8 @@ router = DefaultRouter()
 router.register(r'users', views.UserViewSet, basename="user")
 router.register(r'blogposts', views.BlogPostViewSet, basename="blogpost")
 router.register(r'vehicles', views.VehicleViewSet, basename="vehicle")
+router.register(r'comments', views.CommentViewSet, basename="comment")
+router.register(r'blogpostlikes', views.BlogPostLikeViewSet, basename="blogpostlike")
 
 
 # The API URLs are now determined automatically by the router.

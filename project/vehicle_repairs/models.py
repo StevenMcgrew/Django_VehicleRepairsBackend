@@ -12,7 +12,7 @@ class BlogPost(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        ordering = ['created_at']
+        ordering = ['-id']
 
 class Vehicle(models.Model):
     year = models.IntegerField()
@@ -20,3 +20,19 @@ class Vehicle(models.Model):
     model = models.CharField(max_length=40)
     engine = models.CharField(max_length=5)
     is_verified = models.BooleanField(default=False)
+
+
+class Comment(models.Model):
+    comment = models.TextField(max_length=2000)
+    blog_post = models.ForeignKey('BlogPost', related_name='comments', on_delete=models.CASCADE)
+    user = models.ForeignKey('auth.User', related_name='comments', on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+
+class BlogPostLike(models.Model):
+    blog_post = models.ForeignKey('BlogPost', related_name='blogpostlikes', on_delete=models.CASCADE)
+    user = models.ForeignKey('auth.User', related_name='blogpostlikes', on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = ['blog_post', 'user']
