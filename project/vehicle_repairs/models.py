@@ -14,3 +14,10 @@ class BlogPost(models.Model):
 
     class Meta:
         ordering = ['created_at']
+
+class Vehicle(models.Model):
+    year = models.IntegerField()
+    make = models.CharField(max_length=40)
+    model = models.CharField(max_length=40)
+    engine = models.CharField(max_length=5)
+    is_verified = models.BooleanField(default=False)
