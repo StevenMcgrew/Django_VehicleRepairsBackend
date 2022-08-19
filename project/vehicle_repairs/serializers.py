@@ -4,42 +4,40 @@ from vehicle_repairs.models import BlogPost
 from vehicle_repairs.models import Vehicle
 from vehicle_repairs.models import Comment
 from vehicle_repairs.models import BlogPostLike
+from vehicle_repairs.models import Tag
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
-    blogposts = serializers.HyperlinkedRelatedField(many=True,
-                    view_name='blogpost-detail', read_only=True)
-
     class Meta:
         model = User
-        fields = ['url', 'id', 'username', 'blogposts']
+        exclude = ['password']
 
 
 class BlogPostSerializer(serializers.HyperlinkedModelSerializer):
-    user = serializers.ReadOnlyField(source='user.username')
-
     class Meta:
         model = BlogPost
-        fields = ['url', 'id', 'title', 'repair_steps', 'thumbnail',
-                  'is_published', 'user', 'vehicle']
+        fields = '__all__'
 
 
 class VehicleSerializer(serializers.HyperlinkedModelSerializer):
-    
     class Meta:
         model = Vehicle
-        fields = ['url', 'id', 'year', 'make', 'model', 'engine', 'is_verified']
+        fields = '__all__'
 
 
 class CommentSerializer(serializers.HyperlinkedModelSerializer):
-
     class Meta:
         model = Comment
-        fields = ['comment', 'user', 'blog_post']
+        fields = '__all__'
 
 
 class BlogPostLikeSerializer(serializers.HyperlinkedModelSerializer):
-
     class Meta:
         model = BlogPostLike
-        fields = ['user', 'blog_post']
+        fields = '__all__'
+
+
+class TagSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Tag
+        fields = '__all__'

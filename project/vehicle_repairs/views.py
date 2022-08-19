@@ -3,12 +3,14 @@ from vehicle_repairs.serializers import BlogPostSerializer
 from vehicle_repairs.serializers import VehicleSerializer
 from vehicle_repairs.serializers import CommentSerializer
 from vehicle_repairs.serializers import BlogPostLikeSerializer
+from vehicle_repairs.serializers import TagSerializer
 
 from django.contrib.auth.models import User
 from vehicle_repairs.models import BlogPost
 from vehicle_repairs.models import Vehicle
 from vehicle_repairs.models import Comment
 from vehicle_repairs.models import BlogPostLike
+from vehicle_repairs.models import Tag
 
 from vehicle_repairs.permissions import IsOwnerOrReadOnly
 from rest_framework import permissions, viewsets
@@ -46,4 +48,10 @@ class CommentViewSet(viewsets.ModelViewSet):
 class BlogPostLikeViewSet(viewsets.ModelViewSet):
     queryset = BlogPostLike.objects.all()
     serializer_class = BlogPostLikeSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+
+class TagViewSet(viewsets.ModelViewSet):
+    queryset = Tag.objects.all()
+    serializer_class = TagSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]

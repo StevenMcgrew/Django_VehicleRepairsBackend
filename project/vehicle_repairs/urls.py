@@ -9,6 +9,7 @@ router.register(r'blogposts', views.BlogPostViewSet, basename="blogpost")
 router.register(r'vehicles', views.VehicleViewSet, basename="vehicle")
 router.register(r'comments', views.CommentViewSet, basename="comment")
 router.register(r'blogpostlikes', views.BlogPostLikeViewSet, basename="blogpostlike")
+router.register(r'tags', views.TagViewSet, basename="tag")
 
 
 # The API URLs are now determined automatically by the router.
