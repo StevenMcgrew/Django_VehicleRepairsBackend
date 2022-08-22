@@ -1,4 +1,5 @@
 from vehicle_repairs.serializers import UserSerializer
+from vehicle_repairs.serializers import UserProfileSerializer
 from vehicle_repairs.serializers import BlogPostSerializer
 from vehicle_repairs.serializers import VehicleSerializer
 from vehicle_repairs.serializers import CommentSerializer
@@ -6,6 +7,7 @@ from vehicle_repairs.serializers import BlogPostLikeSerializer
 from vehicle_repairs.serializers import TagSerializer
 
 from django.contrib.auth.models import User
+from vehicle_repairs.models import UserProfile
 from vehicle_repairs.models import BlogPost
 from vehicle_repairs.models import Vehicle
 from vehicle_repairs.models import Comment
@@ -16,13 +18,21 @@ from vehicle_repairs.permissions import IsOwnerOrReadOnly
 from rest_framework import permissions, viewsets
 
 
-# Provides `list` and `retrieve` actions.
-class UserViewSet(viewsets.ReadOnlyModelViewSet):
+class UserViewSet(viewsets.ReadOnlyModelViewSet):  # Provides `list` and `retrieve` actions.
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
 
-# Provides `list`, `create`, `retrieve`, `update` and `destroy` actions.
+class UserProfileViewSet(viewsets.ModelViewSet):  # Provides `list`, `create`, `retrieve`, `update` and `destroy` actions.
+    queryset = UserProfile.objects.all()
+    serializer_class = UserProfileSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly,
+                          IsOwnerOrReadOnly]
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
+
 class BlogPostViewSet(viewsets.ModelViewSet):
     queryset = BlogPost.objects.all()
     serializer_class = BlogPostSerializer

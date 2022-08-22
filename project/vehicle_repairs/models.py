@@ -1,4 +1,22 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.contrib.postgres.fields import ArrayField
+
+
+class UserProfile(models.Model):
+    
+    class UiTheme(models.TextChoices):
+        LIGHT = 'LIGHT'
+        DARK = 'DARK'
+
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    profile_pic = models.CharField(max_length=255, null=True, blank=True)
+    vehicles_history = ArrayField(models.IntegerField(), null=True, blank=True)
+    views_history = ArrayField(models.IntegerField(), null=True, blank=True)
+    following = ArrayField(models.IntegerField(), null=True, blank=True)
+    prefers_notifications = models.BooleanField(default=False)
+    theme = models.CharField(max_length=5, choices=UiTheme.choices, default=UiTheme.LIGHT)
+    updated_at = models.DateTimeField(auto_now=True)
 
 
 class BlogPost(models.Model):
@@ -7,13 +25,14 @@ class BlogPost(models.Model):
     thumbnail = models.CharField(max_length=255)
     is_published = models.BooleanField(default=False)
     user = models.ForeignKey('auth.User', related_name='blogposts', on_delete=models.CASCADE)
-    vehicle = models.ForeignKey('Vehicle', related_name='blogposts', on_delete=models.PROTECT )
+    vehicle = models.ForeignKey('Vehicle', related_name='blogposts', on_delete=models.PROTECT)
     tags = models.ManyToManyField('Tag', related_name='blogposts')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         ordering = ['-id']
+
 
 class Vehicle(models.Model):
     year = models.IntegerField()

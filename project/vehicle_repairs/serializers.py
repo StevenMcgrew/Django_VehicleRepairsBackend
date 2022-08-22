@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
+from vehicle_repairs.models import UserProfile
 from vehicle_repairs.models import BlogPost
 from vehicle_repairs.models import Vehicle
 from vehicle_repairs.models import Comment
@@ -11,6 +12,12 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
         exclude = ['password']
+
+
+class UserProfileSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = UserProfile
+        fields = '__all__'
 
 
 class BlogPostSerializer(serializers.HyperlinkedModelSerializer):
