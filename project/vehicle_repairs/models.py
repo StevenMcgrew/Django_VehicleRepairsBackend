@@ -26,7 +26,7 @@ class BlogPost(models.Model):
     is_published = models.BooleanField(default=False)
     user = models.ForeignKey('auth.User', related_name='blogposts', on_delete=models.CASCADE)
     vehicle = models.ForeignKey('Vehicle', related_name='blogposts', on_delete=models.PROTECT)
-    tags = models.ManyToManyField('Tag', related_name='blogposts')
+    tags = models.ManyToManyField('Tag', related_name='blogposts', blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
