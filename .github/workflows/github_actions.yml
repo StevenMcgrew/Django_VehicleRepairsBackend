@@ -30,6 +30,8 @@ jobs:
           python -m pip install -r project/requirements.txt
  
       - name: Run migrations
+        env:
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
         run: python project/manage.py migrate
     
       - name: Run all tests
