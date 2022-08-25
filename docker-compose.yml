@@ -1,8 +1,8 @@
 version: "3.8"
 services:
     web:
-        build: ./project
-        command: python manage.py runserver 0.0.0.0:8000
+        build: ./project       
+        command: ["gunicorn", "--bind", "0.0.0.0:8000", "main.wsgi"]
         volumes:
             - ./project/:/usr/src/project/
         ports:
@@ -15,8 +15,7 @@ services:
             - DB_PORT=5432
             - DATABASE=postgres
         depends_on:
-          pg:
-            condition: service_healthy
+          - pg
     pg:
         container_name: pg_container
         image: postgres:13.2-alpine
@@ -31,11 +30,6 @@ services:
         volumes:
             - ./data:/data
             - ./data/misc/django_init.sql:/docker-entrypoint-initdb.d/1-django-init.sql
-        healthcheck :
-          test: [ "CMD", "pg_isready", "-q", "-d", "vehicle_repairs_db", "-U", "postgres" ]
-          interval : 60s
-          timeout : 60s
-          retries : 5
     pgadmin:
         container_name: pgadmin_container
         image: dpage/pgadmin4:5.2
