@@ -30,7 +30,7 @@ jobs:
           python -m pip install -r project/requirements.txt
  
       - name: Run migrations
-        run: python manage.py migrate
+        run: python project/manage.py migrate
     
       - name: Run all tests
         run: pytest -v
