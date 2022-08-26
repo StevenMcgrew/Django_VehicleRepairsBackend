@@ -1,3 +1,6 @@
+from pathlib import Path
+
+
 SECRET_KEY = 'dev_key'
 
 DEBUG = True
@@ -14,3 +17,20 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+STATIC_URL = '/static/'
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'rest_framework',
+    'vehicle_repairs',
+    'drf_spectacular',
+    'drf_spectacular_sidecar',
+    'django_filters',
+]
