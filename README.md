@@ -4,14 +4,14 @@
 
 ### **Languages and Tools:**
 
-<div style="display: inline-block">
+<span>
   <img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/python/python-original.svg" alt="Python" width="60"/>
   <p>Python</p>
-</div>
-<div style="display: inline-block">
+</span>
+<span>
   <img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/django/django-plain-wordmark.svg" alt="Django" width="60"/>
   <p>Django</p>
-</div>
+</span>
 <br/>
 <br/>
 
