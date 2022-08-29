@@ -4,11 +4,7 @@
 
 ### **Languages and Tools:**
 
-<img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/python/python-original-wordmark.svg" alt="Python" width="60"/>
-<img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/django/django-plain-wordmark.svg" alt="Django" width="60"/>
-<img src="https://www.django-rest-framework.org/img/logo.png" alt="Django REST framework" width="60"/>
-<img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/googlecloud/googlecloud-original-wordmark.svg" alt="Google Cloud Platform" width="60"/>
-<img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/postgresql/postgresql-original-wordmark.svg" alt="PostgreSQL" width="60"/>
+<img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/python/python-original-wordmark.svg" alt="Python" width="60"/>&nbsp;&nbsp;&nbsp;<img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/django/django-plain-wordmark.svg" alt="Django" width="60"/>&nbsp;&nbsp;&nbsp;<img src="https://github.com/StevenMcgrew/Django_VehicleRepairsBackend/blob/master/drf_logo.png?raw=true" alt="Django REST framework" width="80"/>&nbsp;&nbsp;&nbsp;<img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/postgresql/postgresql-original-wordmark.svg" alt="PostgreSQL" width="50"/>&nbsp;&nbsp;&nbsp;<img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/googlecloud/googlecloud-original-wordmark.svg" alt="Google Cloud Platform" width="70"/>
 <br/>
 <br/>
 
@@ -16,8 +12,10 @@ This backend is built for an application where people can document their vehicle
 <br/>
 <br/>
 ### **API routes:**
-<br/>
 
+&nbsp;&nbsp;&nbsp;&nbsp;*Click the image for the full Swagger UI
+
+<a><img src="https://raw.githubusercontent.com/StevenMcgrew/Django_VehicleRepairsBackend/master/Screenshot_swagger_ui.png" alt="Swagger UI"/></a>
 <br/>
 
 ### **PostgreSQL Database:**
