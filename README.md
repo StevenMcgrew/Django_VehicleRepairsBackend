@@ -13,10 +13,10 @@ This backend is built for an application where people can document their vehicle
 <br/>
 ### **API routes:**
 
-&nbsp;&nbsp;&nbsp;&nbsp;*Click the image for the full Swagger UI
+&nbsp;&nbsp;&nbsp;&nbsp;Click [HERE](https://vehicle-repairs-image-cggzxny54a-uc.a.run.app/api/schema/swagger-ui/) for the full Swagger UI
 
-<a><img src="https://raw.githubusercontent.com/StevenMcgrew/Django_VehicleRepairsBackend/master/Screenshot_swagger_ui.png" alt="Swagger UI"/></a>
-<br/>
+<a href="https://vehicle-repairs-image-cggzxny54a-uc.a.run.app/api/schema/swagger-ui/
+"><img src="https://raw.githubusercontent.com/StevenMcgrew/Django_VehicleRepairsBackend/master/Screenshot_swagger_ui.png" alt="Swagger UI"/></a>
 
 ### **PostgreSQL Database:**
 <br/>
