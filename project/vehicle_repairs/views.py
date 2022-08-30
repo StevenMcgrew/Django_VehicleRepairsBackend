@@ -21,33 +21,33 @@ def query_params_handler(view, model):
     return model.objects.all()
 
 
-class CRUDViewSet(mixins.CreateModelMixin, mixins.RetrieveModelMixin,
+class CRUD(mixins.CreateModelMixin, mixins.RetrieveModelMixin,
                   mixins.UpdateModelMixin, mixins.DestroyModelMixin,
                   viewsets.GenericViewSet):
     pass
 
 
-class CRViewSet(mixins.CreateModelMixin, mixins.RetrieveModelMixin,
+class CreateRead(mixins.CreateModelMixin, mixins.RetrieveModelMixin,
                             viewsets.GenericViewSet):
     pass
 
 
-class CRUViewSet(mixins.CreateModelMixin, mixins.RetrieveModelMixin,
+class CreateReadUpdate(mixins.CreateModelMixin, mixins.RetrieveModelMixin,
                  mixins.UpdateModelMixin, viewsets.GenericViewSet):
     pass
 
 
-class CRDViewSet(mixins.CreateModelMixin, mixins.RetrieveModelMixin,
+class CreateReadDelete(mixins.CreateModelMixin, mixins.RetrieveModelMixin,
                  mixins.DestroyModelMixin, viewsets.GenericViewSet):
     pass
 
 
-class UserViewSet(CRUDViewSet):
+class UserViewSet(CRUD):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
 
-class UserProfileViewSet(CRUDViewSet):
+class UserProfileViewSet(CRUD):
     queryset = UserProfile.objects.all()
     serializer_class = UserProfileSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,
@@ -71,25 +71,25 @@ class BlogPostViewSet(viewsets.ModelViewSet):
         query_params_handler(self, Tag)
 
 
-class VehicleViewSet(CRViewSet):
+class VehicleViewSet(CreateRead):
     queryset = Vehicle.objects.all()
     serializer_class = VehicleSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
-class CommentViewSet(CRUViewSet):
+class CommentViewSet(CreateReadUpdate):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
-class BlogPostLikeViewSet(CRDViewSet):
+class BlogPostLikeViewSet(CreateReadDelete):
     queryset = BlogPostLike.objects.all()
     serializer_class = BlogPostLikeSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
-class TagViewSet(CRViewSet):
+class TagViewSet(CreateRead):
     serializer_class = TagSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
